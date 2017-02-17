@@ -1,7 +1,7 @@
 ﻿import {Aurelia} from 'aurelia-framework';
 
-import './styles/styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import './styles/styles.css';
 import 'bootstrap';
 
 import 'fuse-box-aurelia-loader';
