@@ -5,6 +5,13 @@ import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 
+import 'fuse-box-aurelia-loader';
+import 'aurelia-bootstrapper';
+
+import { initialize } from 'aurelia-pal-browser';
+
+initialize();
+
 // comment out if you don't want a Promise polyfill (remove also from webpack.config.js)
 import * as Bluebird from 'bluebird';
 Bluebird.config({ warnings: false });
