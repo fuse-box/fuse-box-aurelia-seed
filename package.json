@@ -37,6 +37,11 @@
     "aurelia-templating-binding": "^1.2.0",
     "aurelia-templating-resources": "^1.2.0",
     "aurelia-templating-router": "^1.0.1",
-    "fuse-box-aurelia-loader": "https://github.com/fuse-box/fuse-box-aurelia-loader"
+    "fuse-box-aurelia-loader": "https://github.com/fuse-box/fuse-box-aurelia-loader",
+    "bluebird": "^3.4.6",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.1.1"
   }
 }
