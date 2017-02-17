@@ -1,4 +1,14 @@
-﻿import {Aurelia} from 'aurelia-framework';
+﻿// comment out if you don't want a Promise polyfill
+import * as PromiseBluebird from 'bluebird';
+PromiseBluebird.config({ warnings: false });
+
+import 'whatwg-fetch';
+
+if(!window.Promise){
+  window.Promise = PromiseBluebird;
+}
+
+import {Aurelia} from 'aurelia-framework';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/styles.css';
@@ -11,9 +21,7 @@ import { initialize } from 'aurelia-pal-browser';
 
 initialize();
 
-// comment out if you don't want a Promise polyfill (remove also from webpack.config.js)
-import * as Bluebird from 'bluebird';
-Bluebird.config({ warnings: false });
+declare var FuseBox: any;
 
 export async function configure(aurelia: Aurelia) {
   aurelia.use
@@ -28,7 +36,7 @@ export async function configure(aurelia: Aurelia) {
   // aurelia.use.plugin('aurelia-html-import-template-loader')
 
   await aurelia.start();
-  aurelia.setRoot('app');
+  await aurelia.setRoot('app');
 
   // if you would like your website to work offline (Service Worker), 
   // install and enable the @easy-webpack/config-offline package in webpack.config.js and uncomment the following code:
