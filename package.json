@@ -1,0 +1,42 @@
+{
+  "name": "fuse-box-aurelia-seed",
+  "version": "0.0.1",
+  "description": "Skeleton for Aurelia with Fuse-Box",
+  "keywords": [
+    "aurelia",
+    "fuse-box-bundler",
+    "fuse-box",
+    "typescript"
+  ],
+  "homepage": "https://github.com/fuse-box/fuse-box-aurelia-seed",
+  "bugs": {
+    "url": "https://github.com/fuse-box/fuse-box-aurelia-seed/issues"
+  },
+  "license": "MIT",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arjen de Blok",
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/fuse-box/fuse-box-aurelia-seed"
+  },
+  "devDependencies": {
+    "fuse-box": "^1.3.112",
+    "typescript": "^2.1.6"
+  },
+  "dependencies": {
+    "aurelia-bootstrapper": "^2.0.1",
+    "aurelia-event-aggregator": "^1.0.1",
+    "aurelia-fetch-client": "^1.1.0",
+    "aurelia-framework": "^1.0.8",
+    "aurelia-history-browser": "^1.0.0",
+    "aurelia-pal-browser": "^1.1.0",
+    "aurelia-polyfills": "^1.1.1",
+    "aurelia-templating-binding": "^1.2.0",
+    "aurelia-templating-resources": "^1.2.0",
+    "aurelia-templating-router": "^1.0.1",
+    "fuse-box-aurelia-loader": "https://github.com/fuse-box/fuse-box-aurelia-loader"
+  }
+}
