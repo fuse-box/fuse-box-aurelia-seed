@@ -21,8 +21,10 @@ const fuseBox = FuseBox.init({
     ]
 });
 
-// fuseBox.devServer(">app.ts +path", {
-fuseBox.devServer(`>main.js + **/*.js + **/*.ts + **/*.html + **/*.css + **/*.ttf
+fuseBox.devServer(`>main.ts 
+                   + **/*.ts                   
+                   + **/*.html 
+                   + **/*.css
                    + aurelia-framework 
                    + aurelia-logging-console 
                    + aurelia-templating-binding 
