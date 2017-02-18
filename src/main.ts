@@ -2,8 +2,6 @@
 import * as PromiseBluebird from 'bluebird';
 PromiseBluebird.config({ warnings: false });
 
-import 'whatwg-fetch';
-
 if(!window.Promise){
   window.Promise = PromiseBluebird;
 }
@@ -16,10 +14,6 @@ import 'bootstrap';
 
 import 'fuse-box-aurelia-loader';
 import 'aurelia-bootstrapper';
-
-import { initialize } from 'aurelia-pal-browser';
-
-initialize();
 
 declare var FuseBox: any;
 

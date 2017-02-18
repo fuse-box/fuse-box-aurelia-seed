@@ -25,6 +25,10 @@ fuseBox.devServer(`>main.ts
                    + **/*.ts                   
                    + **/*.html 
                    + **/*.css
+                   + bluebird
+                   + whatwg-fetch
+                   + aurelia-pal
+                   + aurelia-pal-browser
                    + aurelia-framework 
                    + aurelia-logging-console 
                    + aurelia-templating-binding 
