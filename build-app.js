@@ -4,10 +4,10 @@ const FuseBox = fsbx.FuseBox;
 const fuseBox = FuseBox.init({
     homeDir: "src",
     outFile: "bundle.js",
-    // sourceMap: {
-    //     bundleReference: "./bundle.js.map",
-    //     outFile: "bundle.js.map",
-    // },
+    sourceMap: {
+        bundleReference: "bundle.js.map",
+        outFile: "bundle.js.map",
+    },
     shim: {
         jquery: {
             source: "node_modules/jquery/dist/jquery.js",
@@ -17,12 +17,19 @@ const fuseBox = FuseBox.init({
     plugins: [
         fsbx.CSSPlugin(),
         fsbx.HTMLPlugin({ useDefault: true }),
-        fsbx.TypeScriptHelpers()
+        fsbx.TypeScriptHelpers(),
+        fsbx.SourceMapPlainJsPlugin()
     ]
 });
 
-// fuseBox.devServer(">app.ts +path", {
-fuseBox.devServer(`>main.js + **/*.js + **/*.ts + **/*.html + **/*.css + **/*.ttf
+fuseBox.devServer(`>main.ts 
+                   + **/*.ts                   
+                   + **/*.html 
+                   + **/*.css
+                   + bluebird
+                   + whatwg-fetch
+                   + aurelia-pal
+                   + aurelia-pal-browser
                    + aurelia-framework 
                    + aurelia-logging-console 
                    + aurelia-templating-binding 

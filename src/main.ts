@@ -2,8 +2,6 @@
 import * as PromiseBluebird from 'bluebird';
 PromiseBluebird.config({ warnings: false });
 
-import 'whatwg-fetch';
-
 if(!window.Promise){
   window.Promise = PromiseBluebird;
 }
@@ -16,10 +14,6 @@ import 'bootstrap';
 
 import 'fuse-box-aurelia-loader';
 import 'aurelia-bootstrapper';
-
-import { initialize } from 'aurelia-pal-browser';
-
-initialize();
 
 declare var FuseBox: any;
 
@@ -35,8 +29,12 @@ export async function configure(aurelia: Aurelia) {
   // Anyone wanting to use HTMLImports to load views, will need to install the following plugin.
   // aurelia.use.plugin('aurelia-html-import-template-loader')
 
-  await aurelia.start();
-  await aurelia.setRoot('app');
+  // set a timeout to let the splash screen show something (mostly in IE 11)
+  // this may not be needed for your app
+  window.setTimeout(async () => {
+    await aurelia.start();
+    await aurelia.setRoot('app');  
+  }, 50);
 
   // if you would like your website to work offline (Service Worker), 
   // install and enable the @easy-webpack/config-offline package in webpack.config.js and uncomment the following code:
