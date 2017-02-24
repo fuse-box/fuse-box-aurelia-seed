@@ -1,6 +1,6 @@
 ﻿// comment out if you don't want a Promise polyfill
 import * as PromiseBluebird from 'bluebird';
-PromiseBluebird.config({ warnings: false });
+PromiseBluebird.config({ warnings: false, longStackTraces: false });
 
 if(!window.Promise){
   window.Promise = PromiseBluebird;
