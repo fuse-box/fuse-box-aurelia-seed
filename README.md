@@ -1,7 +1,7 @@
 # fuse-box-aurelia-seed
 
-A skeleton for Aurelia using FuseBox.
-Most of sample app is taken from [here](https://github.com/aurelia/skeleton-navigation/tree/master/skeleton-typescript) with soem minor changes
+* A skeleton for Aurelia using FuseBox.
+* Most of sample app is taken from [here](https://github.com/aurelia/skeleton-navigation/tree/master/skeleton-typescript) with some minor changes.
 
 ## How to install:
 ```npm install```
