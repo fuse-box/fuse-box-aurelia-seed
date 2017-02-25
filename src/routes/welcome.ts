@@ -1,10 +1,10 @@
 //import {computedFrom} from 'aurelia-framework';
 
 export class Welcome {
-  heading: string = 'Welcome to the Aurelia Navigation App';
-  firstName: string = 'John';
-  lastName: string = 'Doe';
-  previousValue: string = this.fullName;
+  public heading = 'Welcome to the "Fuse-Box-Aurelia-Loader" App';
+  public firstName = 'Fuse';
+  public lastName = 'Box';
+  public previousValue: string = this.fullName;
 
   //Getters can't be directly observed, so they must be dirty checked.
   //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
@@ -15,12 +15,12 @@ export class Welcome {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  submit() {
+  public submit() {
     this.previousValue = this.fullName;
     alert(`Welcome, ${this.fullName}!`);
   }
 
-  canDeactivate(): boolean | undefined {
+  public canDeactivate(): boolean | undefined {
     if (this.fullName !== this.previousValue) {
       return confirm('Are you sure you want to leave?');
     }

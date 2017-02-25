@@ -1,45 +1,46 @@
-﻿// comment out if you don't want a Promise polyfill
-import * as PromiseBluebird from 'bluebird';
-PromiseBluebird.config({ warnings: false, longStackTraces: false });
-
-if(!window.Promise){
-  window.Promise = PromiseBluebird;
+/**
+ * Comment out if you dont want Promise polifill
+ * You will need this for IE11 and Edge Promise is really slow
+ */
+import * as PromiseBlueBird from 'bluebird';
+PromiseBlueBird.config({ warnings: false, longStackTraces: false });
+if (!window.Promise) { // there is prb a better way of doing this.. shimming?
+  window.Promise = PromiseBlueBird;
 }
 
-import {Aurelia} from 'aurelia-framework';
 
-import 'bootstrap/dist/css/bootstrap.css';
-import './styles/styles.css';
-import 'bootstrap';
 
+/**
+ * Comment out if you dont want Fetch polifill
+ * You will need this for IE11
+ */
+import 'whatwg-fetch';
+
+
+
+/**
+ * Load the fusebox loader
+ * This needs to be loaded before aurelia bootstrapper so bootstrapper wil use it
+ * To get all debug messages from the loader set the window.FUSEBOX_AURELIA_LOADER_LOGGING to "true"
+ * This is mostly for development purposes
+ */
+window.FUSEBOX_AURELIA_LOADER_LOGGING=true
 import 'fuse-box-aurelia-loader';
+
+
+// start aurelia bootstrapper
 import 'aurelia-bootstrapper';
 
-declare var FuseBox: any;
 
-export async function configure(aurelia: Aurelia) {
+// import Aurelia (for typescript typings only)
+import {Aurelia} from 'aurelia-framework';
+
+
+// aurelia configuration
+export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
     .developmentLogging();
 
-  // Uncomment the line below to enable animation.
-  // aurelia.use.plugin('aurelia-animator-css');
-  // if the css animator is enabled, add swap-order="after" to all router-view elements
-
-  // Anyone wanting to use HTMLImports to load views, will need to install the following plugin.
-  // aurelia.use.plugin('aurelia-html-import-template-loader')
-
-  // set a timeout to let the splash screen show something (mostly in IE 11)
-  // this may not be needed for your app
-  window.setTimeout(async () => {
-    await aurelia.start();
-    await aurelia.setRoot('app');  
-  }, 50);
-
-  // if you would like your website to work offline (Service Worker), 
-  // install and enable the @easy-webpack/config-offline package in webpack.config.js and uncomment the following code:
-  /*
-  const offline = await System.import('offline-plugin/runtime');
-  offline.install();
-  */
+  aurelia.start().then(() => aurelia.setRoot());
 }
