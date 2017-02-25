@@ -10,7 +10,7 @@ Most of sample app is taken from [here](https://github.com/aurelia/skeleton-navi
 ```npm run start```
 
 ## Live Demo:
-https://vegarringdal.github.io/aurelia-fusebox-seed/
+https://vegarringdal.github.io/fuse-box-aurelia-seed/
 
 ## Loader used:
 [fuse-box-aurelia-loader](https://github.com/fuse-box/fuse-box-aurelia-loader)
