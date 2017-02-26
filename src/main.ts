@@ -4,8 +4,8 @@
  */
 import * as PromiseBlueBird from 'bluebird';
 PromiseBlueBird.config({ warnings: false, longStackTraces: false });
-if (!window.Promise) { // there is prb a better way of doing this.. shimming?
-  window.Promise = PromiseBlueBird;
+if (!(<any>window).Promise) { // there is prb a better way of doing this.. shimming?
+  (<any>window).Promise = PromiseBlueBird;
 }
 
 
@@ -24,7 +24,7 @@ import 'whatwg-fetch';
  * To get all debug messages from the loader set the window.FUSEBOX_AURELIA_LOADER_LOGGING to "true"
  * This is mostly for development purposes
  */
-window.FUSEBOX_AURELIA_LOADER_LOGGING=true
+(<any>window).FUSEBOX_AURELIA_LOADER_LOGGING = true;
 import 'fuse-box-aurelia-loader';
 
 
@@ -33,7 +33,7 @@ import 'aurelia-bootstrapper';
 
 
 // import Aurelia (for typescript typings only)
-import {Aurelia} from 'aurelia-framework';
+import { Aurelia } from 'aurelia-framework';
 
 
 // aurelia configuration
