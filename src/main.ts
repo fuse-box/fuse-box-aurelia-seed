@@ -1,19 +1,35 @@
-﻿// comment out if you don't want a Promise polyfill
+﻿/**
+ * Comment out if you dont want Promise polifill
+ * You will need this for IE11 and Edge Promise is really slow on Windows 10 before the Anniversary update
+ */
 import * as PromiseBluebird from 'bluebird';
 PromiseBluebird.config({ warnings: false, longStackTraces: false });
-
-if(!window.Promise){
-  window.Promise = PromiseBluebird;
+if (!(<any>window).Promise) { // there is prb a better way of doing this.. shimming?
+  (<any>window).Promise = PromiseBluebird;
 }
+
+/**
+ * Comment out if you dont want Fetch polifill
+ * You will need this for IE11
+ */
+import 'whatwg-fetch';
+
+/**
+ * Load the fusebox loader
+ * This needs to be loaded before aurelia bootstrapper so bootstrapper wil use it
+ * To get all debug messages from the loader set the window.FUSEBOX_AURELIA_LOADER_LOGGING to "true"
+ * This is mostly for development purposes
+ */
+(<any>window).FUSEBOX_AURELIA_LOADER_LOGGING = true;
+import 'fuse-box-aurelia-loader';
+
+import 'aurelia-bootstrapper';
 
 import {Aurelia} from 'aurelia-framework';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/styles.css';
 import 'bootstrap';
-
-import 'fuse-box-aurelia-loader';
-import 'aurelia-bootstrapper';
 
 declare var FuseBox: any;
 
@@ -35,11 +51,4 @@ export async function configure(aurelia: Aurelia) {
     await aurelia.start();
     await aurelia.setRoot('app');  
   }, 50);
-
-  // if you would like your website to work offline (Service Worker), 
-  // install and enable the @easy-webpack/config-offline package in webpack.config.js and uncomment the following code:
-  /*
-  const offline = await System.import('offline-plugin/runtime');
-  offline.install();
-  */
 }

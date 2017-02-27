@@ -1,10 +1,10 @@
 //import {computedFrom} from 'aurelia-framework';
 
 export class Welcome {
-  heading: string = 'Welcome to the Aurelia Navigation App';
-  firstName: string = 'John';
-  lastName: string = 'Doe';
-  previousValue: string = this.fullName;
+  public heading: string = 'Welcome to the Aurelia Navigation App';
+  public firstName: string = 'Fuse';
+  public lastName: string = 'Box';
+  private previousValue: string = this.fullName;
 
   //Getters can't be directly observed, so they must be dirty checked.
   //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
