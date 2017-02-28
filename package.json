@@ -15,7 +15,9 @@
   "license": "CC0-1.0",
   "main": "main.ts",
   "scripts": {
-    "start": "node ./build/fb-app-build-bundle",
+    "start": "npm run build-dev",
+    "build-dev": "node ./build/fb-app-build-bundle-dev",
+    "build-prod": "node ./build/fb-app-build-bundle-prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Arjen de Blok",
