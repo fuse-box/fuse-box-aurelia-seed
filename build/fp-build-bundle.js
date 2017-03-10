@@ -21,10 +21,10 @@ class FuseBoxBuild {
         this.bundle = FuseBox.init({
             homeDir: "./src",
             outFile: "./dist/fb-app-bundle.js",
-            sourceMap: {
-                bundleReference: "./fb-app-bundle.js.map",
-                outFile: "./dist/fb-app-bundle.js.map",
-            },
+            cache: true, // cache must be false if sourcemaps.vendor equals true
+            log: true,
+            debug: false,
+            sourceMaps : { vendor : false, project : true},
             shim: {
                 jquery: {
                     source: "node_modules/jquery/dist/jquery.js",
@@ -34,22 +34,19 @@ class FuseBoxBuild {
             plugins: [
                 fb.CSSPlugin(),
                 fb.HTMLPlugin({ useDefault: true }),
-                fb.TypeScriptHelpers(),
-                fb.SourceMapPlainJsPlugin()
+                fb.TypeScriptHelpers()
             ]
         });
     }
 
-    BuildDev(hmr)
-    {
+    BuildDev(hmr) {
         let useHmr = hmr || false;
         this.bundle.devServer(
             this.packages,
             { root: './', port: 7775 });
     }
 
-    BuildProd()
-    {
+    BuildProd() {
         this.bundle.bundle(
             this.packages,
             { root: './', port: 7775 });
