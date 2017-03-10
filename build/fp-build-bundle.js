@@ -24,7 +24,7 @@ class FuseBoxBuild {
             cache: true, // cache must be false if sourcemaps.vendor equals true
             log: true,
             debug: false,
-            sourcemaps : { vendor : false, project : true},
+            sourceMaps : { vendor : false, project : true},
             shim: {
                 jquery: {
                     source: "node_modules/jquery/dist/jquery.js",
