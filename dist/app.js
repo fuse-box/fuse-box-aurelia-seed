@@ -9914,13 +9914,13 @@ function configure(aurelia) {
                         .developmentLogging();
                     aurelia.use.plugin('aurelia-materialize-bridge', function (b) { return b.useAll(); });
                     window.Waves = {};
-                    return [4 /*yield*/, aurelia.start()];
+                    return [4, aurelia.start()];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, aurelia.setRoot('app')];
+                    return [4, aurelia.setRoot('app')];
                 case 2:
                     _a.sent();
-                    return [2 /*return*/];
+                    return [2];
             }
         });
     });
