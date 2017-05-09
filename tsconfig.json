@@ -1,41 +1,4 @@
 {
-<<<<<<< HEAD
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": "src/",
-    "outDir": "dist/",
-    "sourceMap": true,
-    "target": "es5",
-    "module": "commonjs",
-    "declaration": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitUseStrict": true,
-    "noUnusedParameters": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitThis": false,
-    "noUnusedLocals": true,
-    "allowUnreachableCode":false,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "lib": ["es2017", "dom"]
-  },
-  "filesGlob": [
-    "./src/**/*.ts",
-    "./test/**/*.ts",
-    "./custom_typings/**/*.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
-  "atom": {
-    "rewriteTsconfig": false
-  }
-}
-=======
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
@@ -47,13 +10,9 @@
         "noImplicitAny": true,
         "noImplicitUseStrict": false,
         "strictNullChecks": true,
-        "noEmitHelpers": true,
+        "noEmitHelpers": false,
         "noLib": false,
-        "lib": [
-            "es2015", "es2015.promise", 
-            "dom"
-        ],
+        "lib": ["es2017", "dom"],
         "outDir": "dist/"
     }
 }
->>>>>>> 364a3fb40932dbdcb66bebd49e1b1e854c991606
