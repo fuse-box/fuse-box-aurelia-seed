@@ -1,10 +1,17 @@
 //import {computedFrom} from 'aurelia-framework';
 
 export class Welcome {
+<<<<<<< HEAD:src/routes/welcome.ts
   public heading = 'Welcome to the "Fuse-Box-Aurelia-Loader" App';
   public firstName = 'Fuse';
   public lastName = 'Box';
   public previousValue: string = this.fullName;
+=======
+  public heading: string = 'Welcome to the Aurelia Navigation App';
+  public firstName: string = 'Fuse';
+  public lastName: string = 'Box';
+  private previousValue: string = this.fullName;
+>>>>>>> 364a3fb40932dbdcb66bebd49e1b1e854c991606:src/routes/welcome.ts
 
   //Getters can't be directly observed, so they must be dirty checked.
   //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.

@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 node_modules
+=======
+# Dependency directories
+node_modules
+
+#fusebox cache
+>>>>>>> 364a3fb40932dbdcb66bebd49e1b1e854c991606
 .fusebox
 

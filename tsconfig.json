@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": "src/",
@@ -34,3 +35,25 @@
     "rewriteTsconfig": false
   }
 }
+=======
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": true,
+        "noImplicitAny": true,
+        "noImplicitUseStrict": false,
+        "strictNullChecks": true,
+        "noEmitHelpers": true,
+        "noLib": false,
+        "lib": [
+            "es2015", "es2015.promise", 
+            "dom"
+        ],
+        "outDir": "dist/"
+    }
+}
+>>>>>>> 364a3fb40932dbdcb66bebd49e1b1e854c991606
