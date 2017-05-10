@@ -8,7 +8,7 @@ export async function configure(aurelia: Aurelia) {
    .standardConfiguration()
    .developmentLogging();
 
- aurelia.use.plugin('aurelia-materialize-bridge', (b:any) => b.useAll());
+ aurelia.use.plugin('aurelia-materialize-bridge', (b: any) => b.useAll());
 
  (<any>window).Waves = {};
 
