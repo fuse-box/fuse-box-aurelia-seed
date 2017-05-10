@@ -1,7 +1,5 @@
 # fuse-box-aurelia-seed
 
-#Fusebox Aurelia Seed
-
 ## How to install:
 ```npm install```
 
