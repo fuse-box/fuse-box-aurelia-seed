@@ -9981,7 +9981,10 @@ var NavBar = (function () {
         this.router = router;
     }
     NavBar.prototype.attached = function () {
-        $('.button-collapse').sideNav();
+        $('.button-collapse').sideNav({
+            closeOnClick: true,
+            draggable: true
+        });
     };
     return NavBar;
 }());
