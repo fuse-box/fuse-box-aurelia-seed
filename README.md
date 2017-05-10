@@ -9,7 +9,7 @@
 ```npm run start```
 
 ## Live Demo:
-todo
+[live sample](https://fuse-box.github.io/fuse-box-aurelia-seed/)
 
 ## Loader used:
 [fuse-box-aurelia-loader](https://github.com/fuse-box/fuse-box-aurelia-loader)
