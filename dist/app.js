@@ -9901,6 +9901,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+window.FUSEBOX_AURELIA_LOADER_RELOAD = true;
 require("materialize-css");
 require("fuse-box-aurelia-loader");
 require("aurelia-bootstrapper");
@@ -9913,7 +9914,6 @@ function configure(aurelia) {
                         .standardConfiguration()
                         .developmentLogging();
                     aurelia.use.plugin('aurelia-materialize-bridge', function (b) { return b.useAll(); });
-                    window.Waves = {};
                     return [4, aurelia.start()];
                 case 1:
                     _a.sent();
@@ -9930,7 +9930,7 @@ exports.configure = configure;
 });
 ___scope___.file("app.html", function(exports, require, module, __filename, __dirname){
 
-module.exports.default =  "<template>\r\n\r\n<h1>${title}</h1>\r\n\r\n</template>"
+module.exports.default =  "<template>\r\n  <require from=\"materialize-css-styles/bin/materialize.css\"></require>\r\n\r\n  <require from=\"./components/main-footer.html\"></require>\r\n  <require from=\"./components/nav-bar.html\"></require>\r\n\r\n  <md-colors md-primary-color=\"#29B6F6\" md-accent-color=\"#FF9800\"></md-colors>\r\n\r\n  <nav-bar router.bind=\"router\"></nav-bar>\r\n  <div class=\"main\">\r\n    <router-view></router-view>\r\n\r\n  </div>\r\n\r\n  <main-footer></main-footer>\r\n\r\n</template>"
 });
 ___scope___.file("app.js", function(exports, require, module, __filename, __dirname){
 
@@ -9938,11 +9938,75 @@ ___scope___.file("app.js", function(exports, require, module, __filename, __dirn
 Object.defineProperty(exports, "__esModule", { value: true });
 var App = (function () {
     function App() {
-        this.title = "hello world from fuse box";
     }
+    App.prototype.configureRouter = function (config, router) {
+        config.title = 'Aurelia';
+        config.map([
+            { route: ['', 'welcome'], name: 'welcome', moduleId: './routes/welcome', nav: true, title: 'Welcome' },
+            { route: 'about', name: 'about', moduleId: './routes/about', nav: true, title: 'About' },
+            { route: 'installation', name: 'installation', moduleId: './routes/installation', nav: true, title: 'installation' }
+        ]);
+        this.router = router;
+    };
     return App;
 }());
 exports.App = App;
+
+});
+___scope___.file("components/main-footer.html", function(exports, require, module, __filename, __dirname){
+
+module.exports.default =  "<template>\r\n  <footer md-footer class=\"orange\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col l6 s12\">\r\n          <h5 class=\"white-text\">Company Bio</h5>\r\n          <p class=\"grey-text text-lighten-4\">We are a team of college students working on this project like it's our full time job. Any amount would help support\r\n            and continue development on this project and is greatly appreciated.</p>\r\n        </div>\r\n        <div class=\"col l3 s12\">\r\n          <h5 class=\"white-text\">Settings</h5>\r\n          <ul>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 1</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 2</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 3</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 4</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col l3 s12\">\r\n          <h5 class=\"white-text\">Connect</h5>\r\n          <ul>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 1</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 2</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 3</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 4</a></li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"footer-copyright\">\r\n      <div class=\"container\">\r\n        Made by <a class=\"orange-text text-lighten-3\" href=\"http://materializecss.com\">Materialize</a>\r\n      </div>\r\n    </div>\r\n  </footer>\r\n\r\n</template>"
+});
+___scope___.file("components/nav-bar.html", function(exports, require, module, __filename, __dirname){
+
+module.exports.default =  "<template bindable=\"router\">\r\n    <md-navbar>\r\n        <a href=\"#\" class=\"brand-logo\"><span>Fuse-box Aurleia Seed</span></a>\r\n        <ul class=\"hide-on-med-and-down right\">\r\n            <li repeat.for=\"row of router.navigation\" md-waves>\r\n                <a href.bind=\"row.href\">${row.title}</a>\r\n            </li>\r\n        </ul>\r\n        <ul id=\"nav-mobile\" class=\"side-nav\" style=\"transform: translateX(-100%);\">\r\n            <li repeat.for=\"row of router.navigation\">\r\n                <a href.bind=\"row.href\">${row.title}</a>\r\n            </li>\r\n        </ul>\r\n        <a href=\"http://materializecss.com/templates/starter-template/preview.html#\" data-activates=\"nav-mobile\" class=\"button-collapse\"><i class=\"material-icons\">menu</i></a>\r\n    </md-navbar>\r\n</template>"
+});
+___scope___.file("routes/about.html", function(exports, require, module, __filename, __dirname){
+
+module.exports.default =  "<template>\r\n    <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n        <div class=\"container\">\r\n            <br><br>\r\n            <h1 class=\"header center orange-text\">About</h1>\r\n            <div class=\"row center\">\r\n                <h5 class=\"header col s12 light\">A page about... about..</h5>\r\n            </div>\r\n            <div class=\"row center\">\r\n                <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"http://materializecss.com/getting-started.html\" id=\"download-button\">Get Started</a>\r\n            </div>\r\n            <br><br>\r\n        </div>\r\n    </div>\r\n</template>"
+});
+___scope___.file("routes/about.js", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var About = (function () {
+    function About() {
+    }
+    return About;
+}());
+exports.About = About;
+
+});
+___scope___.file("routes/installation.html", function(exports, require, module, __filename, __dirname){
+
+module.exports.default =  "<template>\r\n    <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n        <div class=\"container\">\r\n            <br><br>\r\n            <h1 class=\"header center orange-text\">Installation</h1>\r\n            <div class=\"row center\">\r\n                <h5 class=\"header col s12 light\">A page about... installation...</h5>\r\n            </div>\r\n            <div class=\"row center\">\r\n                <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"http://materializecss.com/getting-started.html\" id=\"download-button\">Get Started</a>\r\n            </div>\r\n            <br><br>\r\n        </div>\r\n    </div>\r\n\r\n</template>"
+});
+___scope___.file("routes/installation.js", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var About = (function () {
+    function About() {
+    }
+    return About;
+}());
+exports.About = About;
+
+});
+___scope___.file("routes/welcome.html", function(exports, require, module, __filename, __dirname){
+
+module.exports.default =  "<template>\r\n  <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n    <div class=\"container\">\r\n      <br><br>\r\n      <h1 class=\"header center orange-text\">Starter Template</h1>\r\n      <div class=\"row center\">\r\n        <h5 class=\"header col s12 light\">A modern responsive front-end framework based on Material Design</h5>\r\n      </div>\r\n      <div class=\"row center\">\r\n        <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"http://materializecss.com/getting-started.html\" id=\"download-button\">Get Started</a>\r\n      </div>\r\n      <br><br>\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"container\">\r\n    <div class=\"section\">\r\n\r\n      <!--   Icon Section   -->\r\n      <div class=\"row\">\r\n        <div class=\"col s12 m4\">\r\n          <div class=\"icon-block\">\r\n            <h2 class=\"center light-blue-text\"><i class=\"material-icons\">flash_on</i></h2>\r\n            <h5 class=\"center\">Speeds up development</h5>\r\n\r\n            <p class=\"light\">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.\r\n              Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col s12 m4\">\r\n          <div class=\"icon-block\">\r\n            <h2 class=\"center light-blue-text\"><i class=\"material-icons\">group</i></h2>\r\n            <h5 class=\"center\">User Experience Focused</h5>\r\n\r\n            <p class=\"light\">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates\r\n              components and animations that provide more feedback to users. Additionally, a single underlying responsive\r\n              system across all platforms allow for a more unified user experience.</p>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col s12 m4\">\r\n          <div class=\"icon-block\">\r\n            <h2 class=\"center light-blue-text\"><i class=\"material-icons\">settings</i></h2>\r\n            <h5 class=\"center\">Easy to work with</h5>\r\n\r\n            <p class=\"light\">We have provided detailed documentation as well as specific code examples to help new users get started. We are\r\n              also always open to feedback and can answer any questions a user may have about Materialize.</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <br><br>\r\n\r\n    <div class=\"section\">\r\n\r\n    </div>\r\n  </div>\r\n</template>"
+});
+___scope___.file("routes/welcome.js", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Welcome = (function () {
+    function Welcome() {
+    }
+    return Welcome;
+}());
+exports.Welcome = Welcome;
 
 });
 });

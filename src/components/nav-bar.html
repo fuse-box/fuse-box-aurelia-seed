@@ -1,0 +1,16 @@
+<template bindable="router">
+    <md-navbar>
+        <a href="#" class="brand-logo"><span>Fuse-box Aurleia Seed</span></a>
+        <ul class="hide-on-med-and-down right">
+            <li repeat.for="row of router.navigation" md-waves>
+                <a href.bind="row.href">${row.title}</a>
+            </li>
+        </ul>
+        <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+            <li repeat.for="row of router.navigation">
+                <a href.bind="row.href">${row.title}</a>
+            </li>
+        </ul>
+        <a href="http://materializecss.com/templates/starter-template/preview.html#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </md-navbar>
+</template>
