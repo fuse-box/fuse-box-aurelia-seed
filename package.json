@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Fuse box sample on aurelia",
   "scripts": {
-    "watch": "npm run fuse"
+    "watch": "node fuse"
   },
   "author": "Fusebox community",
   "license": "MIT",
