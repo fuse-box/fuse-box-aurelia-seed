@@ -9942,9 +9942,10 @@ var App = (function () {
     App.prototype.configureRouter = function (config, router) {
         config.title = 'Aurelia';
         config.map([
-            { route: ['', 'welcome'], name: 'welcome', moduleId: './routes/welcome', nav: true, title: 'Welcome' },
-            { route: 'about', name: 'about', moduleId: './routes/about', nav: true, title: 'About' },
-            { route: 'installation', name: 'installation', moduleId: './routes/installation', nav: true, title: 'installation' }
+            { route: ['', 'welcome'], name: 'welcome', moduleId: './routes/welcome', nav: true, title: 'Fusebox Aurelia Seed' },
+            { route: 'aurelia-materialize-bridge', name: 'mat-bridge', moduleId: './routes/mat-bridge', nav: true, title: 'Materialize-Bridge' },
+            { route: 'aurelia-kendoui-bridge', name: 'kendo-bridge', moduleId: './routes/kendo-bridge', nav: true, title: 'KendoUi-Bridge' },
+            { route: 'v-grid', name: 'v-grid', moduleId: './routes/v-grid', nav: true, title: 'V-Grid' }
         ]);
         this.router = router;
     };
@@ -9955,7 +9956,7 @@ exports.App = App;
 });
 ___scope___.file("components/main-footer.html", function(exports, require, module, __filename, __dirname){
 
-module.exports.default =  "<template>\r\n  <footer md-footer class=\"orange\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col l6 s12\">\r\n          <h5 class=\"white-text\">Company Bio</h5>\r\n          <p class=\"grey-text text-lighten-4\">We are a team of college students working on this project like it's our full time job. Any amount would help support\r\n            and continue development on this project and is greatly appreciated.</p>\r\n        </div>\r\n        <div class=\"col l3 s12\">\r\n          <h5 class=\"white-text\">Settings</h5>\r\n          <ul>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 1</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 2</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 3</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 4</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col l3 s12\">\r\n          <h5 class=\"white-text\">Connect</h5>\r\n          <ul>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 1</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 2</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 3</a></li>\r\n            <li><a class=\"white-text\" href=\"#!\">Link 4</a></li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"footer-copyright\">\r\n      <div class=\"container\">\r\n        Made by <a class=\"orange-text text-lighten-3\" href=\"http://materializecss.com\">Materialize</a>\r\n      </div>\r\n    </div>\r\n  </footer>\r\n\r\n</template>"
+module.exports.default =  "<template>\r\n  <footer md-footer class=\"orange\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col l6 s12\">\r\n          <h5 class=\"white-text\">About Sample</h5>\r\n          <p class=\"grey-text text-lighten-4\">Sample is containing a lot of links to fusebox and aurelia components etc, figured I could have something useful in a sample</p>\r\n        </div>\r\n        <div class=\"col l3 s12\">\r\n          <h5 class=\"white-text\">Sites</h5>\r\n          <ul>\r\n            <li><a class=\"white-text\" href=\"http://fuse-box.org/\">Fuse-box Docs</a></li>\r\n            <li><a class=\"white-text\" href=\"http://aurelia.io/\">Aurelia</a></li>\r\n            <li><a class=\"white-text\" href=\"http://aurelia.io/hub.html#/doc/persona/developer\">Aurelia Docs</a></li>\r\n            <li><a class=\"white-text\" href=\"http://materializecss.com/\">Materializecss</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class=\"col l3 s12\">\r\n          <h5 class=\"white-text\">Github repos</h5>\r\n          <ul>\r\n            <li><a class=\"white-text\" href=\"https://github.com/fuse-box/fuse-box\">Fusebox</a></li>\r\n            <li><a class=\"white-text\" href=\"https://github.com/fuse-box/fuse-box-aurelia-loader\">Fusebox-Aurelia-Loader</a></li>\r\n            <li><a class=\"white-text\" href=\"https://github.com/fuse-box/fuse-box-aurelia-seed\">Fusebox-Aurelia-Seed</a></li>\r\n            <li><a class=\"white-text\" href=\"https://github.com/behzad888/awesome-aurelia\">Awesome Aurelia</a></li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"footer-copyright\">\r\n      <div class=\"container\">\r\n        Template by <a class=\"orange-text text-lighten-3\" href=\"http://materializecss.com\">Materialize</a>\r\n      </div>\r\n    </div>\r\n  </footer>\r\n\r\n</template>"
 });
 ___scope___.file("components/nav-bar.html", function(exports, require, module, __filename, __dirname){
 
@@ -9996,41 +9997,57 @@ exports.NavBar = NavBar;
 var _a;
 
 });
-___scope___.file("routes/about.html", function(exports, require, module, __filename, __dirname){
+___scope___.file("routes/kendo-bridge.html", function(exports, require, module, __filename, __dirname){
 
-module.exports.default =  "<template>\r\n    <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n        <div class=\"container\">\r\n            <br><br>\r\n            <h1 class=\"header center orange-text\">About</h1>\r\n            <div class=\"row center\">\r\n                <h5 class=\"header col s12 light\">A page about... about..</h5>\r\n            </div>\r\n            <div class=\"row center\">\r\n                <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"http://materializecss.com/getting-started.html\" id=\"download-button\">Get Started</a>\r\n            </div>\r\n            <br><br>\r\n        </div>\r\n    </div>\r\n</template>"
+module.exports.default =  "<template>\r\n    <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n        <div class=\"container\">\r\n            <br><br>\r\n            <h1 class=\"header center orange-text\">Aurelia-KendoUI-Bridge</h1>\r\n            <div class=\"row center\">\r\n                <h5 class=\"header col s12 light\">Aurelia components for kendo-ui</h5>\r\n            </div>\r\n            <div class=\"row center\">\r\n                <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"https://github.com/aurelia-ui-toolkits/aurelia-kendoui-bridge\" id=\"download-button\">Get Started</a>\r\n            </div>\r\n            <br><br>\r\n        </div>\r\n    </div>\r\n</template>"
 });
-___scope___.file("routes/about.js", function(exports, require, module, __filename, __dirname){
+___scope___.file("routes/kendo-bridge.js", function(exports, require, module, __filename, __dirname){
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var About = (function () {
-    function About() {
+var KendoBridge = (function () {
+    function KendoBridge() {
     }
-    return About;
+    return KendoBridge;
 }());
-exports.About = About;
+exports.KendoBridge = KendoBridge;
 
 });
-___scope___.file("routes/installation.html", function(exports, require, module, __filename, __dirname){
+___scope___.file("routes/mat-bridge.html", function(exports, require, module, __filename, __dirname){
 
-module.exports.default =  "<template>\r\n    <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n        <div class=\"container\">\r\n            <br><br>\r\n            <h1 class=\"header center orange-text\">Installation</h1>\r\n            <div class=\"row center\">\r\n                <h5 class=\"header col s12 light\">A page about... installation...</h5>\r\n            </div>\r\n            <div class=\"row center\">\r\n                <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"http://materializecss.com/getting-started.html\" id=\"download-button\">Get Started</a>\r\n            </div>\r\n            <br><br>\r\n        </div>\r\n    </div>\r\n\r\n</template>"
+module.exports.default =  "<template>\r\n    <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n        <div class=\"container\">\r\n            <br><br>\r\n            <h1 class=\"header center orange-text\">Aurelia-Materialize-Bridge</h1>\r\n            <div class=\"row center\">\r\n                <h5 class=\"header col s12 light\">Aurelia components for materializecss</h5>\r\n            </div>\r\n            <div class=\"row center\">\r\n                <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge\" id=\"download-button\">Get Started</a>\r\n            </div>\r\n            <br><br>\r\n        </div>\r\n    </div>\r\n</template>"
 });
-___scope___.file("routes/installation.js", function(exports, require, module, __filename, __dirname){
+___scope___.file("routes/mat-bridge.js", function(exports, require, module, __filename, __dirname){
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var About = (function () {
-    function About() {
+var MatBridge = (function () {
+    function MatBridge() {
     }
-    return About;
+    return MatBridge;
 }());
-exports.About = About;
+exports.MatBridge = MatBridge;
+
+});
+___scope___.file("routes/v-grid.html", function(exports, require, module, __filename, __dirname){
+
+module.exports.default =  "<template>\r\n    <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n        <div class=\"container\">\r\n            <br><br>\r\n            <h1 class=\"header center orange-text\">Aurelia-V-Grid</h1>\r\n            <div class=\"row center\">\r\n                <h5 class=\"header col s12 light\">Experimental datagrid made with Aurelia</h5>\r\n            </div>\r\n            <div class=\"row center\">\r\n                <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"https://github.com/vegarringdal/vGrid\" id=\"download-button\">Get Started</a>\r\n            </div>\r\n            <br><br>\r\n        </div>\r\n    </div>\r\n</template>"
+});
+___scope___.file("routes/v-grid.js", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var VGrid = (function () {
+    function VGrid() {
+    }
+    return VGrid;
+}());
+exports.VGrid = VGrid;
 
 });
 ___scope___.file("routes/welcome.html", function(exports, require, module, __filename, __dirname){
 
-module.exports.default =  "<template>\r\n  <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n    <div class=\"container\">\r\n      <br><br>\r\n      <h1 class=\"header center orange-text\">Starter Template</h1>\r\n      <div class=\"row center\">\r\n        <h5 class=\"header col s12 light\">A modern responsive front-end framework based on Material Design</h5>\r\n      </div>\r\n      <div class=\"row center\">\r\n        <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"http://materializecss.com/getting-started.html\" id=\"download-button\">Get Started</a>\r\n      </div>\r\n      <br><br>\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"container\">\r\n    <div class=\"section\">\r\n\r\n      <!--   Icon Section   -->\r\n      <div class=\"row\">\r\n        <div class=\"col s12 m4\">\r\n          <div class=\"icon-block\">\r\n            <h2 class=\"center light-blue-text\"><i class=\"material-icons\">flash_on</i></h2>\r\n            <h5 class=\"center\">Speeds up development</h5>\r\n\r\n            <p class=\"light\">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.\r\n              Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col s12 m4\">\r\n          <div class=\"icon-block\">\r\n            <h2 class=\"center light-blue-text\"><i class=\"material-icons\">group</i></h2>\r\n            <h5 class=\"center\">User Experience Focused</h5>\r\n\r\n            <p class=\"light\">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates\r\n              components and animations that provide more feedback to users. Additionally, a single underlying responsive\r\n              system across all platforms allow for a more unified user experience.</p>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col s12 m4\">\r\n          <div class=\"icon-block\">\r\n            <h2 class=\"center light-blue-text\"><i class=\"material-icons\">settings</i></h2>\r\n            <h5 class=\"center\">Easy to work with</h5>\r\n\r\n            <p class=\"light\">We have provided detailed documentation as well as specific code examples to help new users get started. We are\r\n              also always open to feedback and can answer any questions a user may have about Materialize.</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <br><br>\r\n\r\n    <div class=\"section\">\r\n\r\n    </div>\r\n  </div>\r\n</template>"
+module.exports.default =  "<template>\r\n  <div class=\"section no-pad-bot\" id=\"index-banner\">\r\n    <div class=\"container\">\r\n      <br><br>\r\n      <h1 class=\"header center orange-text\">Fusebox Aurelia Seed</h1>\r\n      <div class=\"row center\">\r\n        <h5 class=\"header col s12 light\">Sample based on Material Design starter template</h5>\r\n      </div>\r\n      <div class=\"row center\">\r\n        <a md-button=\"large: true;\" md-waves=\"color: light;\" href=\"http://fuse-box.org:3333\" id=\"download-button\">Get Started Fusebox</a>\r\n      </div>\r\n      <br><br>\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"container\">\r\n    <div class=\"section\">\r\n\r\n      <!--   Icon Section   -->\r\n      <div class=\"row\">\r\n        <div class=\"col s12 m4\">\r\n          <div class=\"icon-block\">\r\n            <h2 class=\"center light-blue-text\"><i class=\"material-icons\">flash_on</i></h2>\r\n            <h5 class=\"center\">Speed</h5>\r\n\r\n            <p class=\"light\">It is blazing fast (it takes 50-100ms to re-bundle) which makes it extremely convenient for developers. It requires zero configuration to bundle such monsters like babel-core.</p>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col s12 m4\">\r\n          <div class=\"icon-block\">\r\n            <h2 class=\"center light-blue-text\"><i class=\"material-icons\">group</i></h2>\r\n            <h5 class=\"center\">Fun</h5>\r\n\r\n            <p class=\"light\">FuseBox is a bundler/module loader that combines the power of webpack, JSPM and SystemJS.</p>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col s12 m4\">\r\n          <div class=\"icon-block\">\r\n            <h2 class=\"center light-blue-text\"><i class=\"material-icons\">settings</i></h2>\r\n            <h5 class=\"center\">API</h5>\r\n\r\n            <p class=\"light\">FuseBox loves typescript, and does not require any additional configuration. It will compile and bundle your code within a fraction of a second, yet offering a comprehensive loader API.</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <br><br>\r\n\r\n    <div class=\"section\">\r\n\r\n    </div>\r\n  </div>\r\n</template>"
 });
 ___scope___.file("routes/welcome.js", function(exports, require, module, __filename, __dirname){
 

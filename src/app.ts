@@ -6,9 +6,10 @@ export class App {
     public configureRouter(config: RouterConfiguration, router: Router) {
         config.title = 'Aurelia';
         config.map([
-            { route: ['', 'welcome'], name: 'welcome', moduleId: './routes/welcome', nav: true, title: 'Welcome' },
-            { route: 'about', name: 'about', moduleId: './routes/about', nav: true, title: 'About' },
-            { route: 'installation', name: 'installation', moduleId: './routes/installation', nav: true, title: 'installation' }
+            { route: ['', 'welcome'], name: 'welcome', moduleId: './routes/welcome', nav: true, title: 'Fusebox Aurelia Seed' },
+            { route: 'aurelia-materialize-bridge', name: 'mat-bridge', moduleId: './routes/mat-bridge', nav: true, title: 'Materialize-Bridge' },
+            { route: 'aurelia-kendoui-bridge', name: 'kendo-bridge', moduleId: './routes/kendo-bridge', nav: true, title: 'KendoUi-Bridge' },
+            { route: 'v-grid', name: 'v-grid', moduleId: './routes/v-grid', nav: true, title: 'V-Grid' }
         ]);
 
         this.router = router;

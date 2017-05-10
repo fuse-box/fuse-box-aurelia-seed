@@ -7,7 +7,7 @@ const {
     CSSPlugin
 } = require("fuse-box");
 
-// typechecker (minor bug first time when caching vendor bundle)
+// typechecker (minor bug first time when caching vendor bundle, its on my todo list(vegar)... just need to talk to fusebox team..)
 const TypeCheckPlugin = require('fuse-box-typechecker').TypeCheckPlugin
 
 const fuse = FuseBox.init({
@@ -17,7 +17,7 @@ const fuse = FuseBox.init({
         TypeCheckPlugin(),
         CSSPlugin(),
         HTMLPlugin(),
-        RawPlugin(['.css'])
+        RawPlugin(['.css', '.woff'])
     ],
     alias: {
         'jQuery': 'jquery',
@@ -42,6 +42,7 @@ const fuse = FuseBox.init({
 // Because we created a shim above, we need to bundle Materialize's CSS
 // with a different name. Otherwise fuse-box will not bundle the CSS.
 // So we trick fuse-box to load a css-only module by giving meaningless (space) instructions.
+// todo, how do we get fonts included ?
 fuse.register('materialize-css-styles', {
     homeDir: 'node_modules/materialize-css',
     main: 'bin/materialize.css',
