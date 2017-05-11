@@ -10,7 +10,7 @@ const {
 
 Sparky.task('dev', () => {
     // typechecker (minor bug first time when caching vendor bundle, its on my todo list(vegar)... just need to talk to fusebox team..)
-    const TypeCheckPlugin = require('fuse-box-typechecker').TypeCheckPlugin
+    const TypeCheckPlugin = require('fuse-box-typechecker').TypeCheckPlugin;
     const fuse = FuseBox.init({
         homeDir: './src',
         output: './dist/$name.js',
@@ -21,7 +21,7 @@ Sparky.task('dev', () => {
             RawPlugin(['.css', '.woff'])
         ],
         alias: {
-            'jQuery': 'jquery',
+            'jQuery': 'jquery'
         },
         shim: {
             jquery: {
@@ -74,7 +74,7 @@ Sparky.task('dev', () => {
         + aurelia-templating-router
         + aurelia-materialize-bridge
         + materialize-css-styles`)
-        .shim({}) //dontwant jquery/meterilize here here too..
+        .shim({}); //dontwant jquery/meterilize here here too..
         
 
     // app bundle
@@ -82,9 +82,9 @@ Sparky.task('dev', () => {
     fuse.bundle('app')
         .watch().cache(true).hmr()
         .instructions(`
-    > [main.ts]
-    + **/*.{ts,html,css}
-    `)
+            > [main.ts]
+            + **/*.{ts,html,css}
+        `);
 
 
 
