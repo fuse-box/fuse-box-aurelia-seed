@@ -59,7 +59,7 @@ Sparky.task('dev', () => {
 
 
     fuse.bundle("vendor")
-        .cache(false)
+        .cache(true)
         .instructions(` 
         + aurelia-bootstrapper
         + fuse-box-aurelia-loader
