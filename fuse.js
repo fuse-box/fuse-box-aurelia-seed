@@ -8,6 +8,11 @@ const {
     Sparky
 } = require("fuse-box");
 
+Sparky.task('copy-fonts', () => {
+    Sparky.src('node_modules/materialize-css/dist/fonts/**/**.**')
+        .dest('fonts/');
+});
+
 Sparky.task('dev', () => {
     // typechecker (minor bug first time when caching vendor bundle, its on my todo list(vegar)... just need to talk to fusebox team..)
     const TypeCheckPlugin = require('fuse-box-typechecker').TypeCheckPlugin;
@@ -19,28 +24,28 @@ Sparky.task('dev', () => {
             CSSPlugin(),
             HTMLPlugin(),
             RawPlugin(['.css', '.woff'])
-        ],
-        alias: {
-            'jQuery': 'jquery'
-        },
-        shim: {
-            jquery: {
-                source: 'node_modules/jquery/dist/jquery.js',
-                exports: '$'
-            },
-            // Materialize needs a shim here to be placed at the top of the bundle.
-            // It's necessary because loading the module introduces side-effects
-            // and it exports globals.
-            'materialize-css': {
-                source: 'node_modules/materialize-css/bin/materialize.js',
-                exports: 'Materialize'
-            }
-        }
+        ]
+        // alias: {
+        //     'jQuery': 'jquery'
+        // }
+        // shim: {
+        //     jquery: {
+        //         source: 'node_modules/jquery/dist/jquery.js',
+        //         exports: '$'
+        //     },
+        //     // Materialize needs a shim here to be placed at the top of the bundle.
+        //     // It's necessary because loading the module introduces side-effects
+        //     // and it exports globals.
+        //     'materialize-css': {
+        //         source: 'node_modules/materialize-css/dist/js/materialize.js',
+        //         exports: 'Materialize'
+        //     }
+        // }
     });
 
     fuse.register('materialize-css-styles', {
-        homeDir: 'node_modules/materialize-css',
-        main: 'bin/materialize.css',
+        homeDir: 'node_modules/materialize-css/dist/css',
+        main: 'materialize.css',
         instructions: ' '
     });
 
@@ -54,7 +59,7 @@ Sparky.task('dev', () => {
 
 
     fuse.bundle("vendor")
-        .cache(true)
+        .cache(false)
         .instructions(` 
         + aurelia-bootstrapper
         + fuse-box-aurelia-loader
@@ -74,13 +79,23 @@ Sparky.task('dev', () => {
         + aurelia-templating-router
         + aurelia-materialize-bridge
         + materialize-css-styles`)
-        .shim({}); //dontwant jquery/meterilize here here too..
+        .alias({ 'jQuery': 'jquery' })
+        .shim({
+            jquery: {
+                source: 'node_modules/jquery/dist/jquery.js',
+                exports: '$'
+            },
+            'materialize-css': {
+                source: 'node_modules/materialize-css/dist/js/materialize.js',
+                exports: 'Materialize'
+            }
+        });
         
 
     // app bundle
     // todo, we need to have vendor bundle and app bundle...
     fuse.bundle('app')
-        .watch().cache(true).hmr()
+        .watch().cache(false).hmr()
         .instructions(`
             > [main.ts]
             + **/*.{ts,html,css}
