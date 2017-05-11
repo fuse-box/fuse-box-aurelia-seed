@@ -12,7 +12,7 @@ export async function configure(aurelia: Aurelia) {
 
   aurelia.use.plugin('aurelia-materialize-bridge', (b: any) => b.useAll());
 
-  //  (<any>window).Waves = {};
+  // (<any>window).Waves = {};
 
   await aurelia.start();
   await aurelia.setRoot('app');
