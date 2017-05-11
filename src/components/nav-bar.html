@@ -9,7 +9,7 @@
 
             <ul id="nav-mobile" class="side-nav">
                 <li repeat.for="row of router.navigation">
-                    <a href.bind="row.href">${row.title}</a>
+                    <a href.bind="row.href" class="${ row.isActive ? 'active' : '' }">${row.title}</a>
                 </li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
