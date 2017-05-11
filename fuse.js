@@ -85,7 +85,7 @@ fuse.bundle("vendor")
 // app bundle
 // todo, we need to have vendor bundle and app bundle...
 fuse.bundle('app')
-    .watch().cache(false)
+    .watch().cache(true).hmr()
     .instructions(`
    > [main.ts]
    + **/*.{ts,html,css}
@@ -94,7 +94,6 @@ fuse.bundle('app')
 
 
 fuse.dev({
-    port: 4445,
     root: './'
 });
 fuse.run();
