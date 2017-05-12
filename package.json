@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Fuse box sample on aurelia",
   "scripts": {
-    "start": "node fuse dev"
+    "start": "node ./build/fuse dev",
+    "demo": "node ./build/fuse prod"
   },
   "author": "Fusebox community",
   "license": "MIT",
