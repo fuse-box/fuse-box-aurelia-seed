@@ -11,7 +11,6 @@ export class App {
             { route: 'aurelia-kendoui-bridge', name: 'kendo-bridge', moduleId: './routes/kendo-bridge', nav: true, title: 'KendoUi-Bridge' },
             { route: 'v-grid', name: 'v-grid', moduleId: './routes/v-grid', nav: true, title: 'V-Grid' }
         ]);
-
         this.router = router;
     }
 }
