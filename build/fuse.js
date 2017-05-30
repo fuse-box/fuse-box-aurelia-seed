@@ -123,7 +123,7 @@ let run = (production) => {
             .watch().cache(false).hmr()
             .instructions(`
             > [main.ts]
-            + **/*.{ts,html,css}
+            + [**/*.{ts,html,css}]
         `);
 
         // we also want http dev server
@@ -137,7 +137,7 @@ let run = (production) => {
         fuse.bundle('app')
             .instructions(`
             > [main.ts]
-            + **/*.{ts,html,css}
+            + [**/*.{ts,html,css}]
         `);
 
     }
