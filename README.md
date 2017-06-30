@@ -1,5 +1,9 @@
 # fuse-box-aurelia-seed
 
+## Updates
+ * 30 June: updated to 2.2-beta.25 and added lock file
+
+
 ## How to install:
 ```npm install```
 

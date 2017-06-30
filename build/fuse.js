@@ -5,8 +5,24 @@ const {
     HTMLPlugin,
     CSSPlugin,
     Sparky,
-    EnvPlugin
+    EnvPlugin,
+    UglifyJSPlugin
 } = require("fuse-box");
+
+// typehelper
+var TypeHelper = require('../node_modules/fuse-box-typechecker').TypeHelper
+
+// inject fusebox loader and boostrapper
+var autoLoadAureliaLoaders =function() {
+    var loader = function(){}
+    loader.prototype.init = function(context) {}
+    loader.prototype.bundleEnd = function(context) {
+        context.source.addContent(`FuseBox.import("fuse-box-aurelia-loader")`);
+        context.source.addContent(`FuseBox.import("aurelia-bootstrapper")`);
+    }
+    return new loader();
+}
+
 
 const BASE_PATH = '../';
 
@@ -36,6 +52,21 @@ Sparky.task('copy-css', () => {
 });
 
 
+
+/*
+ * task for starting typechecker
+ */
+Sparky.task('typechecker', () => {
+    var testWatch = TypeHelper({
+        tsConfig: './tsconfig.json',
+        name: 'Seed',
+        basePath:'./'
+    })
+    testWatch.runWatch('./src')
+    return true;
+});
+
+
 /*
  * task bundling
  *
@@ -48,20 +79,16 @@ let run = (production) => {
     // env plugin vars
     let env = {
         FB_AU_LOG: production ? false : true,
-        FB_AU_RELOAD: production ? false : true,
         devMode: production ? false : true
     }
 
 
-    // typechecker (minor bug first time when caching vendor bundle, its on my todo list(vegar)... just need to talk to fusebox team..)
-    const TypeCheckPlugin = require('fuse-box-typechecker').TypeCheckPlugin;
     const fuse = FuseBox.init({
         homeDir: BASE_PATH + 'src',
         output: BASE_PATH + path + '/$name.js',
         plugins: [
-            TypeCheckPlugin({
-                quit: production
-            }),
+            autoLoadAureliaLoaders(),
+            production ? UglifyJSPlugin() : function () {},
             CSSPlugin(),
             EnvPlugin(env),
             HTMLPlugin(),
@@ -78,10 +105,11 @@ let run = (production) => {
     });
 
 
-    // vendor bundle, all libs that really dont change
+    // vendor bundle, all libs that really dont change ("fuse-box-css" will be removed after 2.2 releases)
     fuse.bundle("vendor")
         .cache(true)
         .instructions(` 
+        + fuse-box-css
         + aurelia-bootstrapper
         + fuse-box-aurelia-loader
         + aurelia-framework
@@ -146,7 +174,7 @@ let run = (production) => {
 };
 
 
-Sparky.task("dev", ["copy-fonts", "copy-css"], () => {
+Sparky.task("dev", ["copy-fonts", "copy-css", "typechecker"], () => {
     run(false)
 });
 
