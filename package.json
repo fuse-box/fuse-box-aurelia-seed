@@ -23,18 +23,18 @@
     "aurelia-task-queue": "^1.2.0",
     "aurelia-templating": "^1.4.2",
     "bluebird": "^3.5.0",
-    "fuse-box": "^2.0.0",
-    "fuse-box-aurelia-loader": "git://github.com/fuse-box/fuse-box-aurelia-loader.git",
-    "fuse-box-typechecker": "git://github.com/fuse-box/fuse-box-typechecker.git",
+    "fuse-box": "^2.2.0-beta.25",
+    "fuse-box-aurelia-loader": "git://github.com/fuse-box/fuse-box-aurelia-loader.git#2.0.0",
+    "fuse-box-typechecker": "git://github.com/fuse-box/fuse-box-typechecker.git#2.1.1",
     "less": "^2.7.2",
     "source-map": "^0.5.6",
     "stylus": "^0.54.5",
-    "tslint": "^5.2.0",
-    "typescript": "2.3.2",
-    "whatwg-fetch": "^2.0.2"
-  },
-  "dependencies": {
+    "tslint": "^5.4.3",
+    "typescript": "2.4.1",
+    "whatwg-fetch": "^2.0.3",
     "aurelia-materialize-bridge": "^0.28.0",
-    "materialize-css": "^0.98.2"
-  }
+    "materialize-css": "^0.98.2",
+    "uglify-js": "^3.0.22"
+  },
+  "dependencies": {}
 }
