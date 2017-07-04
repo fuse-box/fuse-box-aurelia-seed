@@ -1,7 +1,8 @@
 # fuse-box-aurelia-seed
 
 ## Updates
- * 30 June: updated to 2.2-beta.25 and added lock file
+ * 4 July: updated to fusebox 2.2 + dependencies
+ * 30 June: updated to fusebox 2.2-beta.25 and added lock file
 
 
 ## How to install:
@@ -18,3 +19,12 @@
 
 ## Loader used:
 [fuse-box-aurelia-loader](https://github.com/fuse-box/fuse-box-aurelia-loader)
+
+### Note regarding "fuse-box-aurelia-loader"
+
+Some features of Fusebox can not be used with this Aurelia loader
+ * [rollup](http://fuse-box.org/page/rollup)
+ * [quantum](http://fuse-box.org/page/quantum)
+ * [code splitting](http://fuse-box.org/page/code-splitting)
+
+Some of these might get added later, feel free to make PR to make these work.
