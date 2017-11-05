@@ -60,7 +60,10 @@ Sparky.task('typechecker', () => {
     var testWatch = TypeHelper({
         tsConfig: './tsconfig.json',
         name: 'Seed',
-        basePath:'./'
+        basePath: './',
+        tsLint: './tslint.json',
+        shortenFilenames: true,
+        yellowOnLint: true,
     })
     testWatch.runWatch('./src')
     return true;

@@ -1,9 +1,9 @@
 # fuse-box-aurelia-seed
 
 ## Updates
+ * 11 Nov: updated dependencies and typechecker settings
  * 4 July: updated to fusebox 2.2 + dependencies
  * 30 June: updated to fusebox 2.2-beta.25 and added lock file
-
 
 ## How to install:
 ```npm install```
