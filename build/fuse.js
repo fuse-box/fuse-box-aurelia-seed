@@ -8,6 +8,7 @@ const {
     EnvPlugin,
     UglifyJSPlugin
 } = require("fuse-box");
+const { src, task, watch, context, fuse } = require("fuse-box/sparky");
 
 // typehelper
 var TypeHelper = require('../node_modules/fuse-box-typechecker').TypeHelper
@@ -31,7 +32,7 @@ const BASE_PATH = '../';
 /*
  * task for copying the fonts needed to styles folder
  */
-Sparky.task('copy-fonts', () => {
+task('copy-fonts', () => {
     return Sparky.src('**/*.*', {
             base: BASE_PATH + 'node_modules/materialize-css/dist/fonts/'
         })
@@ -43,7 +44,7 @@ Sparky.task('copy-fonts', () => {
 /*
  * task for copying the css needed to styles folder
  */
-Sparky.task('copy-css', () => {
+task('copy-css', () => {
     return Sparky.src('*.*', {
             base: BASE_PATH + 'node_modules/materialize-css/dist/css/'
         })
@@ -56,7 +57,7 @@ Sparky.task('copy-css', () => {
 /*
  * task for starting typechecker
  */
-Sparky.task('typechecker', () => {
+task('typechecker', () => {
     var testWatch = TypeHelper({
         tsConfig: './tsconfig.json',
         name: 'Seed',
@@ -177,11 +178,14 @@ let run = (production) => {
 };
 
 
-Sparky.task("dev", ["copy-fonts", "copy-css", "typechecker"], () => {
+task("dev", ["copy-fonts", "copy-css", "typechecker"], () => {
     run(false)
 });
 
+task("default", ["copy-fonts", "copy-css", "typechecker"], () => {
+    run(false)
+});
 
-Sparky.task("prod", ["copy-fonts", "copy-css"], () => {
+task("prod", ["copy-fonts", "copy-css"], () => {
     run(true)
 });
